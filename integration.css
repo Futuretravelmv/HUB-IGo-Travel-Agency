@@ -1,0 +1,754 @@
+/* 
+ * Sistema de Integração Hub-Toronto e Missão da Semana - Estilos
+ * Hub IGO Travel
+ */
+
+.mission-container, .transfers-container {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+.mission-header, .transfers-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.mission-title h2, .transfers-title h2 {
+    color: var(--primary-color);
+    font-size: 24px;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.mission-title p, .transfers-title p {
+    color: var(--gray);
+    font-size: 14px;
+}
+
+.mission-card {
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border: 1px solid #eee;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.mission-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.mission-card.completed {
+    border: 2px solid var(--secondary-color);
+    background-color: rgba(40, 167, 69, 0.05);
+}
+
+.mission-content {
+    padding: 20px;
+}
+
+.mission-description {
+    margin-bottom: 20px;
+}
+
+.mission-description h3 {
+    font-size: 20px;
+    margin-bottom: 5px;
+    color: var(--text-color);
+}
+
+.mission-period {
+    font-size: 14px;
+    color: var(--gray);
+}
+
+.mission-progress {
+    margin-bottom: 20px;
+}
+
+.progress-text {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.progress-percentage {
+    font-weight: 600;
+}
+
+.progress-bar {
+    height: 10px;
+    background-color: #e9ecef;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: var(--primary-color);
+    border-radius: 5px;
+    transition: width 0.3s ease;
+}
+
+.mission-card.completed .progress-fill {
+    background-color: var(--secondary-color);
+}
+
+.progress-message {
+    font-size: 14px;
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.mission-card.completed .progress-message {
+    color: var(--secondary-color);
+}
+
+.mission-completed {
+    background-color: rgba(40, 167, 69, 0.1);
+    border-radius: var(--border-radius);
+    padding: 15px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.completed-badge {
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 5px 15px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.reward-message {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--secondary-color);
+}
+
+.mission-actions {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px 20px;
+}
+
+.transfers-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.transfer-item {
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.3s ease;
+}
+
+.transfer-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.transfer-item.confirmed {
+    border-left: 4px solid var(--secondary-color);
+}
+
+.transfer-item.pending {
+    border-left: 4px solid var(--accent-color);
+}
+
+.transfer-date-time {
+    min-width: 80px;
+    text-align: center;
+}
+
+.transfer-date {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.transfer-time {
+    font-size: 14px;
+    color: var(--gray);
+}
+
+.transfer-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.transfer-route {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.pickup-location, .dropoff-location {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.pickup-location i {
+    color: var(--primary-color);
+}
+
+.dropoff-location i {
+    color: var(--secondary-color);
+}
+
+.route-arrow {
+    margin-left: 10px;
+    color: var(--gray);
+    font-size: 12px;
+}
+
+.transfer-client-info {
+    display: flex;
+    gap: 15px;
+    font-size: 14px;
+    color: var(--gray);
+}
+
+.client-name, .client-contact {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.transfer-status-price {
+    min-width: 120px;
+    text-align: right;
+}
+
+.transfer-status {
+    font-size: 14px;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 5px;
+}
+
+.transfer-status.confirmed {
+    color: var(--secondary-color);
+}
+
+.transfer-status.pending {
+    color: var(--accent-color);
+}
+
+.transfer-price {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.transfer-actions {
+    min-width: 100px;
+    text-align: right;
+}
+
+.no-transfers, .no-history {
+    text-align: center;
+    padding: 30px 0;
+    color: var(--gray);
+}
+
+.empty-icon {
+    font-size: 48px;
+    margin-bottom: 15px;
+    color: #ddd;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    border-radius: var(--border-radius);
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header {
+    padding: 15px 20px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h3 {
+    font-size: 20px;
+    color: var(--text-color);
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--gray);
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.modal-footer {
+    padding: 15px 20px;
+    border-top: 1px solid #ddd;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.mission-terms-content h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.terms-section {
+    margin-top: 20px;
+}
+
+.terms-section h5 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: var(--text-color);
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+.terms-section ul {
+    padding-left: 20px;
+}
+
+.terms-section li {
+    margin-bottom: 5px;
+}
+
+.mission-history-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.history-item {
+    background-color: #f8f9fa;
+    border-radius: var(--border-radius);
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.history-item.completed {
+    border-left: 4px solid var(--secondary-color);
+}
+
+.history-item.incomplete {
+    border-left: 4px solid var(--gray);
+}
+
+.history-period {
+    min-width: 120px;
+    font-size: 14px;
+}
+
+.period-dates {
+    display: block;
+    font-weight: 500;
+}
+
+.history-details {
+    flex: 1;
+}
+
+.history-description {
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.history-progress {
+    font-size: 14px;
+    color: var(--gray);
+}
+
+.history-status {
+    min-width: 120px;
+    text-align: right;
+}
+
+.status-completed {
+    color: var(--secondary-color);
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.status-incomplete {
+    color: var(--gray);
+    font-weight: 500;
+}
+
+.bonus-paid {
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.transfer-details-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.transfer-id-date {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: var(--gray);
+    margin-bottom: 10px;
+}
+
+.transfer-route-details {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.route-point {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.point-icon {
+    width: 40px;
+    height: 40px;
+    background-color: #f8f9fa;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.pickup .point-icon {
+    color: var(--primary-color);
+}
+
+.dropoff .point-icon {
+    color: var(--secondary-color);
+}
+
+.point-details {
+    flex: 1;
+}
+
+.point-label {
+    font-size: 14px;
+    color: var(--gray);
+    margin-bottom: 5px;
+}
+
+.point-value {
+    font-weight: 500;
+}
+
+.route-connector {
+    margin-left: 20px;
+    height: 30px;
+    position: relative;
+}
+
+.connector-line {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: #ddd;
+}
+
+.transfer-client-details, .transfer-payment-details {
+    background-color: #f8f9fa;
+    border-radius: var(--border-radius);
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.transfer-client-details h4, .transfer-payment-details h4, .transfer-notes h4 {
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: var(--text-color);
+}
+
+.client-detail, .payment-detail {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.detail-label {
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.detail-value {
+    font-weight: 400;
+}
+
+.status-confirmed {
+    color: var(--secondary-color);
+    font-weight: 500;
+}
+
+.status-pending {
+    color: var(--accent-color);
+    font-weight: 500;
+}
+
+.transfer-notes {
+    margin-bottom: 20px;
+}
+
+.transfer-map {
+    background-color: #f8f9fa;
+    border-radius: var(--border-radius);
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gray);
+}
+
+.map-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.map-placeholder i {
+    font-size: 48px;
+    color: #ddd;
+}
+
+.mission-completed-notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    z-index: 1000;
+    max-width: 400px;
+    animation: slideIn 0.5s ease;
+}
+
+.notification-icon {
+    width: 50px;
+    height: 50px;
+    background-color: var(--secondary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    flex-shrink: 0;
+}
+
+.notification-content {
+    flex: 1;
+}
+
+.notification-content h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: var(--secondary-color);
+}
+
+.notification-content p {
+    font-size: 14px;
+}
+
+.notification-close {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: var(--gray);
+    align-self: flex-start;
+}
+
+.confirmation-message {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 1000;
+    animation: slideIn 0.5s ease;
+}
+
+.message-icon {
+    color: var(--secondary-color);
+    font-size: 20px;
+}
+
+.message-text {
+    font-weight: 500;
+}
+
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+}
+
+.loading-message {
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .mission-actions, .modal-footer {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .mission-actions button, .modal-footer button {
+        width: 100%;
+    }
+    
+    .transfer-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .transfer-date-time {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+    
+    .transfer-status-price {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        text-align: left;
+        margin: 10px 0;
+    }
+    
+    .transfer-actions {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .history-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .history-period, .history-status {
+        width: 100%;
+        text-align: left;
+        margin-bottom: 10px;
+    }
+    
+    .status-completed {
+        align-items: flex-start;
+    }
+}

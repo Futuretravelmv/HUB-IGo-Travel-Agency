@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IGo Travel - Milhas & Ofertas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/miles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background-color: #002F5F;
+            color: white;
+            padding: 15px 0;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: #FDCB46;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #FDCB46;
+        }
+        
+        .user-actions {
+            display: flex;
+            align-items: center;
+        }
+        
+        .language-selector, .currency-selector {
+            position: relative;
+            margin-left: 15px;
+        }
+        
+        .selector-button {
+            background: none;
+            border: none;
+            color: white;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .selector-button i {
+            margin-left: 5px;
+        }
+        
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 10px 0;
+            min-width: 150px;
+            z-index: 100;
+            display: none;
+        }
+        
+        .dropdown-menu.show {
+            display: block;
+        }
+        
+        .dropdown-item {
+            display: flex;
+            align-items: center;
+            padding: 8px 15px;
+            color: #333;
+            text-decoration: none;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+        
+        .dropdown-item:hover {
+            background-color: #f5f5f5;
+        }
+        
+        .dropdown-item img {
+            width: 20px;
+            margin-right: 10px;
+        }
+        
+        .main-content {
+            padding: 30px 0;
+        }
+        
+        footer {
+            background-color: #002F5F;
+            color: white;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-section h3 {
+            color: #FDCB46;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+        
+        .footer-section ul li a:hover {
+            color: #FDCB46;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: #FDCB46;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            margin-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 14px;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+                flex-wrap: wrap;
+            }
+            
+            nav ul li {
+                margin: 5px 10px 5px 0;
+            }
+            
+            .user-actions {
+                margin-top: 15px;
+            }
+            
+            .footer-section {
+                flex: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-plane"></i> IGo Travel
+                </a>
+                
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="cotacao.html">Cotação</a></li>
+                        <li><a href="concierge.html">Concierge IA</a></li>
+                        <li><a href="miles.html" class="active">Milhas & Ofertas</a></li>
+                        <li><a href="toronto.html">IGo Toronto</a></li>
+                        <li><a href="drivers.html">Motoristas</a></li>
+                        <li><a href="admin.html">Admin</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="user-actions">
+                    <div class="language-selector">
+                        <button class="selector-button" id="language-button">
+                            <span>PT</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="dropdown-menu" id="language-menu">
+                            <a href="#" class="dropdown-item" data-lang="pt">
+                                <img src="https://via.placeholder.com/20x20?text=BR" alt="Português">
+                                Português
+                            </a>
+                            <a href="#" class="dropdown-item" data-lang="en">
+                                <img src="https://via.placeholder.com/20x20?text=EN" alt="English">
+                                English
+                            </a>
+                            <a href="#" class="dropdown-item" data-lang="es">
+                                <img src="https://via.placeholder.com/20x20?text=ES" alt="Español">
+                                Español
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="currency-selector">
+                        <button class="selector-button" id="currency-button">
+                            <span>BRL</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="dropdown-menu" id="currency-menu">
+                            <a href="#" class="dropdown-item" data-currency="BRL">
+                                R$ BRL
+                            </a>
+                            <a href="#" class="dropdown-item" data-currency="CAD">
+                                $ CAD
+                            </a>
+                            <a href="#" class="dropdown-item" data-currency="USD">
+                                $ USD
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <div class="main-content">
+        <div class="container">
+            <div id="miles-offers-container" class="miles-offers-container">
+                <!-- O conteúdo será carregado dinamicamente pelo JavaScript -->
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>IGo Travel</h3>
+                    <p>Sua agência de viagens completa, com as melhores ofertas em milhas e dinheiro.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="cotacao.html">Cotação</a></li>
+                        <li><a href="concierge.html">Concierge IA</a></li>
+                        <li><a href="miles.html">Milhas & Ofertas</a></li>
+                        <li><a href="toronto.html">IGo Toronto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Programas de Milhas</h3>
+                    <ul>
+                        <li><a href="#">Smiles</a></li>
+                        <li><a href="#">Latam Pass</a></li>
+                        <li><a href="#">TudoAzul</a></li>
+                        <li><a href="#">TAP Miles&Go</a></li>
+                        <li><a href="#">Aeroplan</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contato</h3>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +55 (11) 99999-9999</li>
+                        <li><i class="fas fa-envelope"></i> contato@igotravel.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> São Paulo, Brasil</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 IGo Travel. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="js/miles.js"></script>
+    <script>
+        // Funcionalidade para os seletores de idioma e moeda
+        document.addEventListener('DOMContentLoaded', function() {
+            // Seletor de idioma
+            const languageButton = document.getElementById('language-button');
+            const languageMenu = document.getElementById('language-menu');
+            
+            languageButton.addEventListener('click', function() {
+                languageMenu.classList.toggle('show');
+            });
+            
+            const languageItems = document.querySelectorAll('#language-menu .dropdown-item');
+            languageItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const lang = this.dataset.lang;
+                    const langText = this.textContent.trim();
+                    
+                    // Atualiza o texto do botão
+                    languageButton.querySelector('span').textContent = lang.toUpperCase();
+                    
+                    // Fecha o menu
+                    languageMenu.classList.remove('show');
+                    
+                    // Aqui você pode adicionar a lógica para mudar o idioma
+                    console.log('Idioma alterado para:', lang);
+                });
+            });
+            
+            // Seletor de moeda
+            const currencyButton = document.getElementById('currency-button');
+            const currencyMenu = document.getElementById('currency-menu');
+            
+            currencyButton.addEventListener('click', function() {
+                currencyMenu.classList.toggle('show');
+            });
+            
+            const currencyItems = document.querySelectorAll('#currency-menu .dropdown-item');
+            currencyItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const currency = this.dataset.currency;
+                    
+                    // Atualiza o texto do botão
+                    currencyButton.querySelector('span').textContent = currency;
+                    
+                    // Fecha o menu
+                    currencyMenu.classList.remove('show');
+                    
+                    // Atualiza a moeda preferida no estado
+                    if (typeof milesOffersState !== 'undefined') {
+                        milesOffersState.userSettings.preferredCurrency = currency;
+                        
+                        // Renderiza novamente os resultados para refletir a nova moeda
+                        const activeTab = document.querySelector('.miles-category-tabs .tab.active');
+                        if (activeTab) {
+                            const category = activeTab.dataset.category;
+                            renderMilesResults(category);
+                        }
+                    }
+                    
+                    console.log('Moeda alterada para:', currency);
+                });
+            });
+            
+            // Fecha os menus ao clicar fora deles
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.language-selector') && languageMenu.classList.contains('show')) {
+                    languageMenu.classList.remove('show');
+                }
+                
+                if (!e.target.closest('.currency-selector') && currencyMenu.classList.contains('show')) {
+                    currencyMenu.classList.remove('show');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

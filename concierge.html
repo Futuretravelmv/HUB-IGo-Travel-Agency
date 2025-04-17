@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concierge IA - IGO Travel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #28a745;
+            --accent-color: #ffc107;
+            --text-color: #333;
+            --light-bg: #f8f9fa;
+            --white: #ffffff;
+            --gray: #6c757d;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: var(--white);
+            box-shadow: var(--box-shadow);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            height: 50px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .language-currency {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .select-wrapper {
+            position: relative;
+        }
+
+        .select-wrapper select {
+            appearance: none;
+            background-color: transparent;
+            border: 1px solid var(--gray);
+            border-radius: var(--border-radius);
+            padding: 5px 25px 5px 10px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .select-wrapper::after {
+            content: '▼';
+            font-size: 10px;
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+        }
+
+        .page-title {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .page-title h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .page-title p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 50px 0 20px;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent-color);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-column ul li a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+            color: #bdc3c7;
+        }
+    </style>
+    <link rel="stylesheet" href="css/concierge.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html">
+                    <img src="https://via.placeholder.com/150x50?text=IGO+Travel" alt="IGO Travel" class="logo">
+                </a>
+                <nav class="nav-links">
+                    <a href="index.html">Início</a>
+                    <a href="cotacao.html">Cotação</a>
+                    <a href="concierge.html" class="active">Concierge IA</a>
+                    <a href="toronto.html">IGO Toronto</a>
+                </nav>
+                <div class="language-currency">
+                    <div class="select-wrapper">
+                        <select id="language-select">
+                            <option value="pt-BR">Português</option>
+                            <option value="en-US">English</option>
+                            <option value="es-ES">Español</option>
+                            <option value="fr-FR">Français</option>
+                        </select>
+                    </div>
+                    <div class="select-wrapper">
+                        <select id="currency-select">
+                            <option value="BRL">BRL</option>
+                            <option value="CAD">CAD</option>
+                            <option value="USD">USD</option>
+                            <option value="EUR">EUR</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="page-title">
+        <div class="container">
+            <h1>Concierge IA</h1>
+            <p>Seu assistente pessoal de viagens com inteligência artificial</p>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="concierge-container" id="concierge-container">
+            <!-- O conteúdo do Concierge IA será carregado dinamicamente via JavaScript -->
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Sobre a IGO Travel</h3>
+                    <p>Somos uma agência de viagens especializada em proporcionar experiências únicas e personalizadas para nossos clientes, com atendimento de excelência e tecnologia de ponta.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="cotacao.html">Cotação</a></li>
+                        <li><a href="concierge.html">Concierge IA</a></li>
+                        <li><a href="toronto.html">IGO Toronto</a></li>
+                        <li><a href="drivers.html">Área do Motorista</a></li>
+                        <li><a href="admin.html">Área Administrativa</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contato</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Av. Paulista, 1000 - São Paulo, SP</li>
+                        <li><i class="fas fa-phone"></i> +55 (11) 3456-7890</li>
+                        <li><i class="fas fa-envelope"></i> contato@igotravel.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 IGO Travel. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/concierge.js"></script>
+</body>
+</html>
